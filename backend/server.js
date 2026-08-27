@@ -10,6 +10,4 @@ app.use(express.json())
 app.use(logger)
 app.use("/notes", router)
 
-app.listen(4000, () => {
-  console.log("Server running on port 4000")
-})
+app.listen(process.env.PORT || 4000)
