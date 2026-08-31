@@ -1,16 +1,17 @@
 const pool = require("../database/pool")
 
-const getNotes = async (req,res) => {
+const getNotes = async (req, res) => {
     try {
-        
-        const result = await pool.query(`select * from notes`)
+        const result = await pool.query("SELECT * FROM notes")
         res.json(result.rows)
     } catch (error) {
-        res.status(400).json({
-            message: error.message
+        console.log("DATABASE ERROR:", error)
+
+        res.status(500).json({
+            message: error.message,
+            error: error
         })
     }
-
 }
 
 const addNote = async (req,res) => {
