@@ -16,7 +16,7 @@ function toggleTheme() {
 
 useEffect(()=>{
   async function getNotes() {
-    const response = await fetch("http://localhost:4000/notes")
+    const response = await fetch("https://full-stack-note-app-69rb.onrender.com/notes")
     const data = await response.json()
     setNote(data)
     
@@ -41,7 +41,7 @@ if (input.length > 201) {
   return alert("too much text")
 }
 if (edit !== null) {
-  const response = await fetch(`http://localhost:4000/notes/${edit}`,{
+  const response = await fetch(`https://full-stack-note-app-69rb.onrender.com/notes${edit}`,{
     method: "PUT",
     headers:{
       "Content-Type": "application/json"
@@ -69,7 +69,7 @@ if (edit !== null) {
     else {
  const randomColor = colorNames[Math.floor(Math.random() * colorNames.length)]
 
-const response = await fetch("http://localhost:4000/notes", {
+const response = await fetch("https://full-stack-note-app-69rb.onrender.com/notes", {
   method: "POST",
   headers: {
     "Content-Type": "application/json"
@@ -98,7 +98,7 @@ setNote(prevNotes => [...prevNotes, data])
    }
 
 async function deleteNote(id) {
-  const response = await fetch(`http://localhost:4000/notes/${id}`, {
+  const response = await fetch(`https://full-stack-note-app-69rb.onrender.com/notes/${id}`, {
     method: "DELETE"
   })
 
