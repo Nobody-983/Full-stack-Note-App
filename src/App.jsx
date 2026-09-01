@@ -30,7 +30,7 @@ const colors = {
   green: "bg-green-50 border-green-200",
   pink: "bg-pink-50 border-pink-200"
 }
-console.log(note)
+
 
 
 async function addNote() {
@@ -88,7 +88,6 @@ if (!response.ok) {
 
 const data = await response.json()
 
-console.log("CREATED NOTE:", data)
 
 setNote(prevNotes => [...prevNotes, data])
 }
